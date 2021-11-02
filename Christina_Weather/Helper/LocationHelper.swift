@@ -10,7 +10,7 @@ import CoreLocation
 import Contacts
 import MapKit
 
-class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate{
+class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
     @Published var address : String = "unknown"
     @Published var currentLocation: CLLocation?
@@ -18,6 +18,9 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate{
     private let locationManager = CLLocationManager()
     private var lastSeenLocation: CLLocation?
     private let geocoder = CLGeocoder()
+    
+    private let API_KEY = "4d99584f6c78448687210616210211"
+    private var completionHandler: (() -> Void)?
     
     override init() {
         super.init()
@@ -79,6 +82,9 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate{
         }
         print(#function, "current location: \(self.currentLocation!)")
         self.doReverseGeocoding(location: self.currentLocation!, completionHandler: {_,_ in })
+        
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+            print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -94,14 +100,6 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate{
                 completionHandler(nil, error as NSError?)
             }else{
                 if let placemarkList = placemarks, let placemark = placemarkList.first{
-                    //                    let city = placemark.locality ?? "NA"
-                    //                    let province = placemark.administrativeArea ?? "NA"
-                    //                    let country = placemark.country ?? "NA"
-                    //                    let street = placemark.thoroughfare ?? "NA"
-                    //
-                    //                    result = "\(street), \(city), \(province), \(country)"
-                    
-                    //successfully obtained the placemark
                     result = CNPostalAddressFormatter.string(from: placemark.postalAddress!, style: .mailingAddress)
                     self.address = result
                     print(#function, "address : \(result)")
@@ -113,4 +111,19 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate{
             }
         })
     }
+}
+
+struct WeatherAPI: Decodable {
+    let temp: Double
+    let wind: Double
+    let windDir: String
+    let humidity: Int
+    let feelsLike: Double
+    let vis: Double
+    let uv: Double
+}
+
+struct APIResponse {
+    let name: String
+    let current: WeatherAPI
 }
