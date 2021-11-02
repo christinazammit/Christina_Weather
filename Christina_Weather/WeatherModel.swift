@@ -14,6 +14,8 @@ public class WeatherModel: ObservableObject {
     @Published var name: String = ""
     @Published var country: String = ""
     @Published var temp_c: String = ""
+    @Published var text: String = ""
+    @Published var icon: String = ""
     @Published var feelslike_c: String = ""
     @Published var wind_kph: String = ""
     @Published var wind_dir: String = ""
@@ -33,6 +35,8 @@ public class WeatherModel: ObservableObject {
                 self.name = weather.name
                 self.country = weather.country
                 self.temp_c = "\(weather.temp_c)ºC"
+                self.text = "Current condition: \(weather.text)"
+                self.icon = "https:\(weather.icon)"
                 self.feelslike_c = "Feels like \(weather.feelslike_c)ºC"
                 self.wind_kph = "Wind: \(weather.wind_kph) kph"
                 self.wind_dir = "Wind direction: \(weather.wind_dir)"

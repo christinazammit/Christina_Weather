@@ -10,6 +10,23 @@
 
 import SwiftUI
 
+extension String {
+    func load() -> UIImage {
+        
+        do {
+            guard let url = URL(string: self) else {
+                return UIImage()
+            }
+            let data: Data = try Data(contentsOf: url)
+            return UIImage(data: data) ?? UIImage()
+        } catch {
+            
+        }
+        
+        return UIImage()
+    }
+}
+
 struct ContentView: View {
     
     @ObservedObject var viewModel: WeatherModel
@@ -17,20 +34,32 @@ struct ContentView: View {
     var body: some View {
 
         VStack {
-            Text("⛅️")
-                .font(.system(size: 70))
-                .padding()
-            Text(viewModel.name)
-                .font(.system(size: 30))
-                .foregroundColor(Color(red: 77 / 255, green: 77 / 255, blue: 77 / 255))
-            Text(viewModel.country)
-                .font(.system(size: 30))
-                .foregroundColor(Color(red: 77 / 255, green: 77 / 255, blue: 77 / 255))
-            Text(viewModel.temp_c)
-                .font(.system(size: 50))
-                .bold()
-                .padding()
-                .foregroundColor(Color(red: 77 / 255, green: 77 / 255, blue: 77 / 255))
+            
+            Group {
+                
+                
+                Image(uiImage: viewModel.icon.load())
+                
+                
+//                Text(viewModel.icon)
+//                    .font(.system(size: 70))
+//                    .padding()
+                Text(viewModel.name)
+                    .font(.system(size: 30))
+                    .foregroundColor(Color(red: 77 / 255, green: 77 / 255, blue: 77 / 255))
+                Text(viewModel.country)
+                    .font(.system(size: 30))
+                    .foregroundColor(Color(red: 77 / 255, green: 77 / 255, blue: 77 / 255))
+                Text(viewModel.temp_c)
+                    .font(.system(size: 50))
+                    .bold()
+                    .padding()
+                    .foregroundColor(Color(red: 77 / 255, green: 77 / 255, blue: 77 / 255))
+                Text(viewModel.text)
+                    .padding()
+                    .font(.system(size: 20))
+                    .foregroundColor(Color(red: 77 / 255, green: 77 / 255, blue: 77 / 255))
+            }
             Text(viewModel.feelslike_c)
                 .font(.system(size: 20))
                 .foregroundColor(Color(red: 77 / 255, green: 77 / 255, blue: 77 / 255))

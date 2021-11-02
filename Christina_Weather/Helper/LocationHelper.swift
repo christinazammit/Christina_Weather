@@ -112,10 +112,16 @@ struct APILocation: Decodable {
 
 struct APICurrent: Decodable {
     let temp_c: Double
+    let condition: APICondition
     let wind_kph: Double
     let wind_dir: String
     let humidity: Int
     let feelslike_c: Double
     let vis_km: Double
     let uv: Double
+}
+
+struct APICondition: Decodable {
+    let text: String
+    let icon: String
 }

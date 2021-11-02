@@ -14,6 +14,8 @@ public struct Weather {
     let name: String
     let country: String
     let temp_c: String
+    let text: String
+    let icon: String
     let feelslike_c: String
     let wind_kph: String
     let wind_dir: String
@@ -25,6 +27,8 @@ public struct Weather {
         name = response.location.name
         country = response.location.country
         temp_c = "\(Int(response.current.temp_c))"
+        text = response.current.condition.text
+        icon = response.current.condition.icon
         feelslike_c = "\(Int(response.current.feelslike_c))"
         wind_kph = "\(Int(response.current.wind_kph))"
         wind_dir = response.current.wind_dir
