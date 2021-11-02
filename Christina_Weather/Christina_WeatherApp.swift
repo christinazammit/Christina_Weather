@@ -14,7 +14,7 @@ struct Christina_WeatherApp: App {
             let locationHelper = LocationHelper()
             let viewModel = WeatherModel(locationHelper: locationHelper)
             ContentView(viewModel: viewModel)
-                .environmentObject(locationHelper)
+               
         }
     }
 }
