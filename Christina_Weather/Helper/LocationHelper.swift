@@ -114,6 +114,8 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
 }
 
 struct WeatherAPI: Decodable {
+    let name: String
+    let country: String
     let temp: Double
     let wind: Double
     let windDir: String
@@ -123,7 +125,3 @@ struct WeatherAPI: Decodable {
     let uv: Double
 }
 
-struct APIResponse {
-    let name: String
-    let current: WeatherAPI
-}
