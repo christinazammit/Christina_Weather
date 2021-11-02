@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Christina_WeatherApp: App {
+    
+    let locationHelper = LocationHelper()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(locationHelper)
         }
     }
 }
