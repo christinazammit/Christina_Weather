@@ -20,9 +20,9 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let geocoder = CLGeocoder()
     
     private let API_KEY = "4d99584f6c78448687210616210211"
-    private var completionHandler: (() -> Void)?
+    private var completionHandler: ((Weather) -> Void)?
     
-    override init() {
+    public override init() {
         super.init()
         
         if (CLLocationManager.locationServicesEnabled()){
@@ -110,6 +110,30 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
                 completionHandler(nil, error as NSError?)
             }
         })
+    }
+    
+    public func loadData(_ completionHandler: @escaping((Weather) -> Void)) {
+        self.completionHandler = completionHandler
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    private func dataRequest(forCoordinates coordinates: CLLocationCoordinate2D) {
+        guard let urlString = "https://api.weatherapi.com/v1/current.json?key=\(API_KEY)&q=\(coordinates.latitude),\(coordinates.longitude)"
+                .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        else {return}
+        
+        guard let url = URL(string: urlString)
+        else {return}
+        
+        URLSession.shared.dataTask(with: url) {
+            data, response, error in
+            guard error == nil, let data = data else {return}
+            
+            if let response = try? JSONDecoder().decode(WeatherAPI.self, from: data) {
+                self.completionHandler?(Weather(response: response))
+            }
+        }.resume()
     }
 }
 
