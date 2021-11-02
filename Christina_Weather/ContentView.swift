@@ -24,22 +24,22 @@ struct ContentView: View {
                 .bold()
             Text(viewModel.feelsLike)
                 .font(.system(size: 25))
-            Text("Wind speeds: 13kph")
+            Text(viewModel.wind)
                 .font(.system(size: 25))
-            Text("Wind direction: WSW")
+            Text(viewModel.windDir)
                 .font(.system(size: 25))
-            Text("Humidity: 53")
+            Text(viewModel.humidity)
                 .font(.system(size: 25))
-            Text("UV: 1.0")
+            Text(viewModel.uv)
                 .font(.system(size: 25))
-            Text("Visibility: 14km")
+            Text(viewModel.vis)
                 .font(.system(size: 25))
-        }
+        }.onAppear(perform: viewModel.refresh)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: WeatherModel(locationHelper: LocationHelper()))
     }
 }
