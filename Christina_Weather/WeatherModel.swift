@@ -8,15 +8,15 @@
 import Foundation
 
 public class WeatherModel: ObservableObject {
-    @Published var city: String = ""
+    @Published var name: String = ""
     @Published var country: String = ""
-    @Published var temp: String = ""
-    @Published var feelsLike: String = ""
-    @Published var wind: String = ""
-    @Published var windDir: String = ""
+    @Published var temp_c: String = ""
+    @Published var feelslike_c: String = ""
+    @Published var wind_kph: String = ""
+    @Published var wind_dir: String = ""
     @Published var humidity: String = ""
     @Published var uv: String = ""
-    @Published var vis: String = ""
+    @Published var vis_km: String = ""
     
     public let locationHelper: LocationHelper
     
@@ -27,15 +27,15 @@ public class WeatherModel: ObservableObject {
     public func refresh() {
         locationHelper.loadData { weather in
             DispatchQueue.main.async {
-                self.city = weather.city
+                self.name = weather.name
                 self.country = weather.country
-                self.temp = "\(weather.temp)ºC"
-                self.feelsLike = "Feels like \(weather.feelsLike)ºC"
-                self.wind = "Wind: \(weather.wind) kph"
-                self.windDir = "Wind direction: \(weather.windDir)"
+                self.temp_c = "\(weather.temp_c)ºC"
+                self.feelslike_c = "Feels like \(weather.feelslike_c)ºC"
+                self.wind_kph = "Wind: \(weather.wind_kph) kph"
+                self.wind_dir = "Wind direction: \(weather.wind_dir)"
                 self.humidity = "Humidity: \(weather.humidity)"
                 self.uv = "UV: \(weather.uv)"
-                self.vis = "Visibility: \(weather.visibility) km"
+                self.vis_km = "Visibility: \(weather.vis_km) km"
             }
         }
     }

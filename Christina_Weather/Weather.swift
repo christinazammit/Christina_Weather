@@ -8,25 +8,25 @@
 import Foundation
 
 public struct Weather {
-    let city: String
+    let name: String
     let country: String
-    let temp: String
-    let feelsLike: String
-    let wind: String
-    let windDir: String
+    let temp_c: String
+    let feelslike_c: String
+    let wind_kph: String
+    let wind_dir: String
     let humidity: String
     let uv: String
-    let visibility: String
+    let vis_km: String
     
-    init(response: WeatherAPI) {
-        city = response.name
-        country = response.country
-        temp = "\(Int(response.temp))"
-        feelsLike = "\(Int(response.feelsLike))"
-        wind = "\(Int(response.wind))"
-        windDir = response.windDir
-        humidity = "\(Int(response.humidity))"
-        uv = "\(Int(response.uv))"
-        visibility = "\(Int(response.vis))"
+    init(response: APIResponse) {
+        name = response.location.name
+        country = response.location.country
+        temp_c = "\(Int(response.current.temp_c))"
+        feelslike_c = "\(Int(response.current.feelslike_c))"
+        wind_kph = "\(Int(response.current.wind_kph))"
+        wind_dir = response.current.wind_dir
+        humidity = "\(Int(response.current.humidity))"
+        uv = "\(Int(response.current.uv))"
+        vis_km = "\(Int(response.current.vis_km))"
     }
 }
