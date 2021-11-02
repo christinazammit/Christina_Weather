@@ -11,6 +11,7 @@
 		FE0596BC2730C46300EF4A22 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0596BB2730C46300EF4A22 /* ContentView.swift */; };
 		FE0596BE2730C46600EF4A22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE0596BD2730C46600EF4A22 /* Assets.xcassets */; };
 		FE0596C12730C46600EF4A22 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE0596C02730C46600EF4A22 /* Preview Assets.xcassets */; };
+		FE0596CE2730D38700EF4A22 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0596CD2730D38700EF4A22 /* LocationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		FE0596BB2730C46300EF4A22 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FE0596BD2730C46600EF4A22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE0596C02730C46600EF4A22 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FE0596CD2730D38700EF4A22 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		FE0596B82730C46300EF4A22 /* Christina_Weather */ = {
 			isa = PBXGroup;
 			children = (
+				FE0596CC2730D37700EF4A22 /* Helper */,
 				FE0596B92730C46300EF4A22 /* Christina_WeatherApp.swift */,
 				FE0596BB2730C46300EF4A22 /* ContentView.swift */,
 				FE0596BD2730C46600EF4A22 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				FE0596C02730C46600EF4A22 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FE0596CC2730D37700EF4A22 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FE0596CD2730D38700EF4A22 /* LocationHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE0596CE2730D38700EF4A22 /* LocationHelper.swift in Sources */,
 				FE0596BC2730C46300EF4A22 /* ContentView.swift in Sources */,
 				FE0596BA2730C46300EF4A22 /* Christina_WeatherApp.swift in Sources */,
 			);
