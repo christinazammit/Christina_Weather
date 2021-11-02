@@ -10,7 +10,7 @@ import CoreLocation
 import Contacts
 import MapKit
 
-class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
+public class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
     @Published var address : String = "unknown"
     @Published var currentLocation: CLLocation?
@@ -66,12 +66,12 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
     }
     
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    public func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         print(#function, "Authorization Status : \(manager.authorizationStatus.rawValue)")
         self.authorizationStatus = manager.authorizationStatus
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.lastSeenLocation = locations.first
         print(#function, "last seen location: \(self.lastSeenLocation!)")
         
@@ -87,7 +87,7 @@ class LocationHelper: NSObject, ObservableObject, CLLocationManagerDelegate {
             print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(#function, "error: \(error.localizedDescription)")
     }
     

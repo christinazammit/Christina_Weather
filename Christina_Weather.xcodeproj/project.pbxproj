@@ -13,6 +13,7 @@
 		FE0596C12730C46600EF4A22 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE0596C02730C46600EF4A22 /* Preview Assets.xcassets */; };
 		FE0596CE2730D38700EF4A22 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0596CD2730D38700EF4A22 /* LocationHelper.swift */; };
 		FE0596D02730E69C00EF4A22 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0596CF2730E69C00EF4A22 /* Weather.swift */; };
+		FE0596D22730EC6400EF4A22 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0596D12730EC6400EF4A22 /* WeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		FE0596C02730C46600EF4A22 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FE0596CD2730D38700EF4A22 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		FE0596CF2730E69C00EF4A22 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		FE0596D12730EC6400EF4A22 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				FE0596B92730C46300EF4A22 /* Christina_WeatherApp.swift */,
 				FE0596BB2730C46300EF4A22 /* ContentView.swift */,
 				FE0596CF2730E69C00EF4A22 /* Weather.swift */,
+				FE0596D12730EC6400EF4A22 /* WeatherModel.swift */,
 				FE0596BD2730C46600EF4A22 /* Assets.xcassets */,
 				FE0596BF2730C46600EF4A22 /* Preview Content */,
 			);
@@ -155,6 +158,7 @@
 				FE0596CE2730D38700EF4A22 /* LocationHelper.swift in Sources */,
 				FE0596BC2730C46300EF4A22 /* ContentView.swift in Sources */,
 				FE0596BA2730C46300EF4A22 /* Christina_WeatherApp.swift in Sources */,
+				FE0596D22730EC6400EF4A22 /* WeatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

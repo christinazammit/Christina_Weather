@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var viewModel: WeatherModel
+    
     var body: some View {
         VStack {
-            Text("Mississauga")
+            Text(viewModel.city)
                 .font(.largeTitle)
                 .padding()
-            Text("Canada")
+            Text(viewModel.country)
                 .font(.largeTitle)
                 .padding()
-            Text("10ºC")
+            Text(viewModel.temp)
                 .font(.system(size: 70))
                 .bold()
-            Text("☁️")
-                .font(.largeTitle)
-                .padding()
-            Text("Feels like 5ºC")
+            Text(viewModel.feelsLike)
                 .font(.system(size: 25))
             Text("Wind speeds: 13kph")
                 .font(.system(size: 25))
