@@ -36,14 +36,7 @@ struct ContentView: View {
         VStack {
             
             Group {
-                
-                
                 Image(uiImage: viewModel.icon.load())
-                
-                
-//                Text(viewModel.icon)
-//                    .font(.system(size: 70))
-//                    .padding()
                 Text(viewModel.name)
                     .font(.system(size: 30))
                     .foregroundColor(Color(red: 77 / 255, green: 77 / 255, blue: 77 / 255))
