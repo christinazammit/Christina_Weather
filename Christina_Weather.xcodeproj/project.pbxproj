@@ -38,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE011C0427320DF8007023D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE0596D12730EC6400EF4A22 /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FE0596AD2730C46200EF4A22 = {
 			isa = PBXGroup;
 			children = (
@@ -57,11 +65,10 @@
 		FE0596B82730C46300EF4A22 /* Christina_Weather */ = {
 			isa = PBXGroup;
 			children = (
+				FE011C0427320DF8007023D3 /* Model */,
 				FE0596CC2730D37700EF4A22 /* Helper */,
 				FE0596B92730C46300EF4A22 /* Christina_WeatherApp.swift */,
 				FE0596BB2730C46300EF4A22 /* ContentView.swift */,
-				FE0596CF2730E69C00EF4A22 /* Weather.swift */,
-				FE0596D12730EC6400EF4A22 /* WeatherModel.swift */,
 				FE0596BD2730C46600EF4A22 /* Assets.xcassets */,
 				FE0596BF2730C46600EF4A22 /* Preview Content */,
 			);
@@ -79,6 +86,7 @@
 		FE0596CC2730D37700EF4A22 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				FE0596CF2730E69C00EF4A22 /* Weather.swift */,
 				FE0596CD2730D38700EF4A22 /* LocationHelper.swift */,
 			);
 			path = Helper;
